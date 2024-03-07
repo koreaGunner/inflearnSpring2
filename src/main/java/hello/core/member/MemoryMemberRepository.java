@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
-@Component
+@Component //memoryMemberRepository
 public class MemoryMemberRepository implements MemberRepository{
 
     //ConcurrentHashMap 검색해보기
