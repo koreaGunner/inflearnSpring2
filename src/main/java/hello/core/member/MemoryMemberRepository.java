@@ -1,10 +1,12 @@
 package hello.core.member;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
 @Component //memoryMemberRepository
+@Primary
 public class MemoryMemberRepository implements MemberRepository{
 
     //ConcurrentHashMap 검색해보기
