@@ -6,10 +6,12 @@ import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService{
 //    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
 //    private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
@@ -21,11 +23,12 @@ public class OrderServiceImpl implements OrderService{
 //    @Autowired private DiscountPolicy discountPolicy;
 
     //spring Bean인데 생성자가 한개일 때는 @Autowired 생략 가능
-    @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
+    //@Autowired
+    //@RequiredArgsConstructor로 인해서 생성자를 선언할 필요가 없어짐
+//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+//        this.memberRepository = memberRepository;
+//        this.discountPolicy = discountPolicy;
+//    }
 
 //    수정자 주입(setter 주입) -> 변경 가능성이 있으므로 변수에 final 지워야 한다
 //    @Autowired는 주입할 대상이 없으면 오류가 난다.
