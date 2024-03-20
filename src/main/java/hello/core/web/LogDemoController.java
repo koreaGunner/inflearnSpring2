@@ -13,15 +13,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class LogDemoController {
 
     private final LogDemoService logDemoService;
-    private final ObjectProvider<MyLogger> myLoggerProvider;
+//    private final ObjectProvider<MyLogger> myLoggerProvider;
+    private final MyLogger myLogger;
 
     @RequestMapping("log-demo")
     @ResponseBody
     public String logDemo(HttpServletRequest request) throws InterruptedException {
         //원하는 시점에 bean객체를 받을수있다
-        MyLogger myLogger = myLoggerProvider.getObject();
+//        MyLogger myLogger = myLoggerProvider.getObject();
 
         String requestURL = request.getRequestURL().toString();
+        System.out.println("myLogger = " + myLogger.getClass());
+
         myLogger.setRequestURL(requestURL);
 
         myLogger.log("controller test");
